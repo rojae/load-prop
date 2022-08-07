@@ -28,10 +28,18 @@ public class PropLoaderImpl implements PropLoader{
         File folder = new File(directoryPath);
 
         if(!folder.exists()){
-            System.out.println("Sorry, Properties file is not exist");
+            try {
+                throw new Exception("Sorry, Resources file is not directory");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         else if(folder.isFile()){
-            System.out.println("Sorry, Resources file is not directory");
+            try {
+                throw new Exception("Sorry, Resources file is not directory");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         else if(folder.isDirectory()){
             this.loader(folder);
