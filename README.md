@@ -17,3 +17,21 @@
             <systemPath>${pom.basedir}/src/main/resources/libs/load-prop-1.0.jar</systemPath>
         </dependency>
 ```
+
+3. jar 추가 이후 소스 수정
+```properties
+# Properties Loader
+prop.load.active=enable | disable
+prop.load.console=enable | disable
+prop.load.path={리소스 폴더 경로}
+```
+
+```java
+// Springboot Main
+@SpringBootApplication
+public class Application extends LoadPropExecution {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
