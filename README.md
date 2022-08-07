@@ -4,6 +4,9 @@
 - 추후 : Maven 업로드 계획
 
 사용법
+1. 모듈 프로젝트 jar packaging
+
+2. 모듈 사용할 프로젝트 : pom.xml을 통해서 jar 라이브러리 추가
 ```xml
         <dependency>
             <groupId>kr.rojae</groupId>
