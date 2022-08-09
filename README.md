@@ -23,7 +23,7 @@
 # Properties Loader
 prop.load.active=enable | disable
 prop.load.console=enable | disable
-prop.load.path={리소스 폴더 경로}
+prop.load.path={resource absolute path}
 ```
 
 ```java
