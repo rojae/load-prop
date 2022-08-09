@@ -29,7 +29,7 @@ public class PropLoaderImpl implements PropLoader{
 
         if(!folder.exists()){
             try {
-                throw new Exception("Sorry, Resources file is not directory");
+                throw new Exception("Sorry, Resources file is not Exists");
             } catch (Exception e) {
                 e.printStackTrace();
             }
