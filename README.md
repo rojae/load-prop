@@ -1,4 +1,4 @@
-# load Properties Module
+# Load Prop (Properties Loader Module)
 
 ## Goals
   1. For easy management of Propertyis by OS, it is managed externally, not internally
