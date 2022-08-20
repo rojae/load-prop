@@ -1,5 +1,6 @@
 package kr.rojae.prop.loader;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.*;
@@ -68,15 +69,18 @@ public interface PropLoader {
         this.parseYaml(map, null);
     }
 
+    @SuppressWarnings("unchecked")
     default void parseYaml(Map<String, Object> item, String parentKey) {
         Map<String, String> map = new HashMap<>();
+        ObjectMapper objectMapper = new ObjectMapper();
 
         for (String key : item.keySet()) {
             Object value = item.get(key);
 
             if (value instanceof Map) {
                 String parentKeyStr = (parentKey == null ? "" : parentKey + ".");
-                parseYaml((Map<String, Object>) value, parentKeyStr + key);
+                Map<String, Object> valueMap = objectMapper.convertValue(value, Map.class);
+                parseYaml(valueMap, parentKeyStr + key);
             }
             else {
                 String keyStr = (parentKey == null ? "" : parentKey + ".") + key;
