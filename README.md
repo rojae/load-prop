@@ -60,37 +60,41 @@ public class Application extends LoadPropExecution {
 
 - Server Start with properties log
 ```bash
-
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
   '  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v2.7.2)
+ :: Spring Boot ::                (v2.4.0)
 
-2022-08-10 01:54:57.302  INFO 36215 --- [           main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 11.0.9.1 on rojaeui-MacBookPro.local with PID 36215 (/Users/rojae/Documents/workbook/test2/target/classes started by rojae in /Users/rojae/Documents/workbook/test2)
-2022-08-10 01:54:57.306  INFO 36215 --- [           main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2022-08-10 01:54:58.040  INFO 36215 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-08-10 01:54:58.048  INFO 36215 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-10 01:54:58.048  INFO 36215 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-08-10 01:54:58.116  INFO 36215 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-10 01:54:58.116  INFO 36215 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 755 ms
-[2022-08-10 01:54:58] [정보     ] ---------------------------------------------------------- 
-[2022-08-10 01:54:58] [정보     ] Properties File = /Users/rojae/Desktop/prop/config.properties 
-[2022-08-10 01:54:58] [정보     ] ---------------------------------------------------------- 
-[2022-08-10 01:54:58] [정보     ] config.password=password 
-[2022-08-10 01:54:58] [정보     ] config.url=localhost 
-[2022-08-10 01:54:58] [정보     ] config.user=rojae 
-[2022-08-10 01:54:58] [정보     ] ---------------------------------------------------------- 
-[2022-08-10 01:54:58] [정보     ] Properties File = /Users/rojae/Desktop/prop/api/api.properties 
-[2022-08-10 01:54:58] [정보     ] ---------------------------------------------------------- 
-[2022-08-10 01:54:58] [정보     ] api.delete=https://jsonplaceholder.typicode.com/posts/1 
-[2022-08-10 01:54:58] [정보     ] api.put=https://jsonplaceholder.typicode.com/posts/1 
-[2022-08-10 01:54:58] [정보     ] api.post=https://jsonplaceholder.typicode.com/posts 
-[2022-08-10 01:54:58] [정보     ] api.get2=https://jsonplaceholder.typicode.com/comments 
-[2022-08-10 01:54:58] [정보     ] api.get1=https://jsonplaceholder.typicode.com/posts 
-[2022-08-10 01:54:58] [정보     ] api.patch=https://jsonplaceholder.typicode.com/posts/1 
-2022-08-10 01:54:58.405  INFO 36215 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-08-10 01:54:58.421  INFO 36215 --- [           main] com.example.demo.DemoApplication         : Started DemoApplication in 1.431 seconds (JVM running for 2.215)
+2022-08-20 18:06:02.387  INFO 40652 --- [           main] kr.rojae.prop.LoadPropExecution          : Starting LoadPropExecution using Java 11.0.9.1 on rojaeuicBookPro with PID 40652 (/Users/rojae/Documents/workbook/load-prop/target/classes started by rojae in /Users/rojae/Documents/workbook/load-prop)
+2022-08-20 18:06:02.389  INFO 40652 --- [           main] kr.rojae.prop.LoadPropExecution          : No active profile set, falling back to default profiles: default
+2022-08-20 18:06:03.298  INFO 40652 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-08-20 18:06:03.312  INFO 40652 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-20 18:06:03.312  INFO 40652 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-08-20 18:06:03.381  INFO 40652 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-20 18:06:03.381  INFO 40652 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 940 ms
+[2022-08-20 18:06:03] [정보     ] ---------------------------------------------------------- 
+[2022-08-20 18:06:03] [정보     ] Properties File = /Users/rojae/Desktop/prop/config.properties 
+[2022-08-20 18:06:03] [정보     ] ---------------------------------------------------------- 
+[2022-08-20 18:06:03] [정보     ] config.password=password 
+[2022-08-20 18:06:03] [정보     ] config.url=localhost 
+[2022-08-20 18:06:03] [정보     ] config.user=rojae 
+[2022-08-20 18:06:03] [정보     ] ---------------------------------------------------------- 
+[2022-08-20 18:06:03] [정보     ] Properties File = /Users/rojae/Desktop/prop/api/api.properties 
+[2022-08-20 18:06:03] [정보     ] ---------------------------------------------------------- 
+[2022-08-20 18:06:03] [정보     ] api.delete=https://jsonplaceholder.typicode.com/posts/1 
+[2022-08-20 18:06:03] [정보     ] api.put=https://jsonplaceholder.typicode.com/posts/1 
+[2022-08-20 18:06:03] [정보     ] api.post=https://jsonplaceholder.typicode.com/posts 
+[2022-08-20 18:06:03] [정보     ] api.get2=https://jsonplaceholder.typicode.com/comments 
+[2022-08-20 18:06:03] [정보     ] api.get1=https://jsonplaceholder.typicode.com/posts 
+[2022-08-20 18:06:03] [정보     ] api.patch=https://jsonplaceholder.typicode.com/posts/1 
+[2022-08-20 18:06:03] [정보     ] ---------------------------------------------------------- 
+[2022-08-20 18:06:03] [정보     ] Properties File = /Users/rojae/Desktop/prop/application.yml 
+[2022-08-20 18:06:03] [정보     ] ---------------------------------------------------------- 
+[2022-08-20 18:06:03] [정보     ] spring.datasource.password=password 
+[2022-08-20 18:06:03] [정보     ] spring.datasource.url=jdbc:h2:dev 
+[2022-08-20 18:06:03] [정보     ] spring.datasource.username=SA 
+[2022-08-20 18:06:03] [정보     ] messenger.list=KAKAOTALK,SLACK,LINE,TELEGRAM 
 ```

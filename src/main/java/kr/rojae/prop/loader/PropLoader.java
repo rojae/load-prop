@@ -71,7 +71,6 @@ public interface PropLoader {
 
     @SuppressWarnings("unchecked")
     default void parseYaml(Map<String, Object> item, String parentKey) {
-        Map<String, String> map = new HashMap<>();
         ObjectMapper objectMapper = new ObjectMapper();
 
         for (String key : item.keySet()) {
