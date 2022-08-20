@@ -66,9 +66,8 @@ public class PropLoaderImpl implements PropLoader {
                         this.setEnvOfProperties(input, printConsole);     // .properties
                     else if (ExtensionType.isYml(listOfFile.getName()) || ExtensionType.isYaml(listOfFile.getName()))
                         this.setEnvOfYaml(input, printConsole);          // .yml, .yaml
-                    else {
+                    else
                         throw new IOException(String.format("Sorry, %s File Extension can't store to System Property", listOfFile.getName()));
-                    }
 
                 } catch (IOException ex) {
                     ex.printStackTrace();
