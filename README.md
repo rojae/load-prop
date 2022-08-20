@@ -1,10 +1,10 @@
-# load Properties Module
+# Load Prop (Properties Loader Module)
 
 ## Goals
   1. For easy management of Propertyis by OS, it is managed externally, not internally
 
 ## History
-### 2022.08.23
+### 2022.07.23
   - Maven Central Repository Upload (v0.1.0)
 
 ## Maven (Maven Repo)
