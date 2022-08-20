@@ -6,6 +6,8 @@
 ## History
 ### 2022.07.23
   - Maven Central Repository Upload (v0.1.0)
+### 2022.08.20
+  - Add yaml, yml file load function
 
 ## Maven (Maven Repo)
 1. Add pom.xml
