@@ -1,9 +1,9 @@
 package kr.rojae.prop.loader;
 
-import java.io.File;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.Properties;
+import org.yaml.snakeyaml.Yaml;
+
+import java.io.*;
+import java.util.*;
 import java.util.logging.*;
 
 public interface PropLoader {
@@ -38,24 +38,51 @@ public interface PropLoader {
 
     // File load comment
     default void comment(File listOfFiles, boolean printConsole) {
-        if(printConsole) {
+        if (printConsole) {
             logger.info("----------------------------------------------------------");
             logger.info(String.format("Properties File = %s", listOfFiles.getAbsolutePath()));
             logger.info("----------------------------------------------------------");
         }
     }
 
-    // For < Java 8
-    // Key Value load comment
-    default void setEnv(Properties prop, boolean printConsole) {
+    // Properties File's Key:Value Set To System
+    default void setEnvOfProperties(InputStream inputStream, boolean printConsole) throws IOException {
+        Properties prop = new Properties();
+        prop.load(inputStream);
         Enumeration e = prop.propertyNames();
+
         while (e.hasMoreElements()) {
             String key = (String) e.nextElement();
             String value = prop.getProperty(key);
             System.setProperty(key, value);
 
-            if(printConsole)
+            if (printConsole)
                 logger.info(String.format("%s=%s", key, value));
+        }
+    }
+
+    // Yaml File's Key:Value Set To System
+    default void setEnvOfYaml(InputStream inputStream, boolean printConsole) {
+        Yaml yaml = new Yaml();
+        Map<String, Object> map = yaml.load(inputStream);
+        this.parseYaml(map, null);
+    }
+
+    default void parseYaml(Map<String, Object> item, String parentKey) {
+        Map<String, String> map = new HashMap<>();
+
+        for (String key : item.keySet()) {
+            Object value = item.get(key);
+
+            if (value instanceof Map) {
+                String parentKeyStr = (parentKey == null ? "" : parentKey + ".");
+                parseYaml((Map<String, Object>) value, parentKeyStr + key);
+            }
+            else {
+                String keyStr = (parentKey == null ? "" : parentKey + ".") + key;
+                System.setProperty(keyStr, (String) value);
+                logger.info(String.format("%s=%s", keyStr, value));
+            }
         }
     }
 

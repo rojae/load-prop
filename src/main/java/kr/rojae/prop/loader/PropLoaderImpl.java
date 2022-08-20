@@ -1,17 +1,18 @@
 package kr.rojae.prop.loader;
 
+import kr.rojae.prop.enums.ExtensionType;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Properties;
 
-public class PropLoaderImpl implements PropLoader{
+public class PropLoaderImpl implements PropLoader {
     private final String directoryPath;
     private final boolean printConsole;
 
-    public PropLoaderImpl(String directoryPath, boolean printConsole){
-        if(directoryPath == null || directoryPath.equals("")){
+    public PropLoaderImpl(String directoryPath, boolean printConsole) {
+        if (directoryPath == null || directoryPath.equals("")) {
             try {
                 throw new Exception("Parameter `directoryPath` must not be null");
             } catch (Exception e) {
@@ -27,21 +28,19 @@ public class PropLoaderImpl implements PropLoader{
     public void run() {
         File folder = new File(directoryPath);
 
-        if(!folder.exists()){
+        if (!folder.exists()) {
             try {
                 throw new Exception("Sorry, Resources file is not Exists");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        else if(folder.isFile()){
+        } else if (folder.isFile()) {
             try {
                 throw new Exception("Sorry, Resources file is not directory");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        else if(folder.isDirectory()){
+        } else if (folder.isDirectory()) {
             this.loader(folder);
         }
     }
@@ -51,7 +50,7 @@ public class PropLoaderImpl implements PropLoader{
         File[] listOfFiles = folder.listFiles();
 
         // Zero index
-        if(listOfFiles == null) return;
+        if (listOfFiles == null) return;
 
         // Props File Parsing and set Env
         for (File listOfFile : listOfFiles) {
@@ -62,13 +61,14 @@ public class PropLoaderImpl implements PropLoader{
                 this.comment(listOfFile, printConsole);
 
                 try (InputStream input = new FileInputStream(listOfFile.getAbsolutePath())) {
-                    Properties prop = new Properties();
 
-                    // load a properties file
-                    prop.load(input);
-
-                    // set environment (key, value)
-                    this.setEnv(prop, printConsole);
+                    if (ExtensionType.isProperties(listOfFile.getName()))
+                        this.setEnvOfProperties(input, printConsole);     // .properties
+                    else if (ExtensionType.isYml(listOfFile.getName()) || ExtensionType.isYaml(listOfFile.getName()))
+                        this.setEnvOfYaml(input, printConsole);          // .yml, .yaml
+                    else {
+                        throw new IOException(String.format("Sorry, %s File Extension can't store to System Property", listOfFile.getName()));
+                    }
 
                 } catch (IOException ex) {
                     ex.printStackTrace();
