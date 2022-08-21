@@ -9,6 +9,9 @@
 ### 2022.08.20
   - Add yaml, yml file load function
 
+## Demo
+- https://github.com/rojae/load-prop-demo
+
 ## Maven (Maven Repo)
 1. Add pom.xml
 ```xml
